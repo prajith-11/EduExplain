@@ -1,0 +1,5 @@
+{
+  "name": "EduExplain: Student Grade Prediction & XAI",
+  "description": "A dashboard for predicting student academic success and providing explainable AI insights to improve performance.",
+  "requestFramePermissions": []
+}

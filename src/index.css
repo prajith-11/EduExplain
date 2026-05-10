@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@layer base {
+  .prose table {
+    @apply w-full border-collapse my-4;
+  }
+  .prose th {
+    @apply bg-slate-100 p-2 border border-slate-200 text-left font-bold;
+  }
+  .prose td {
+    @apply p-2 border border-slate-200;
+  }
+  .prose tr:nth-child(even) {
+    @apply bg-slate-50;
+  }
+}

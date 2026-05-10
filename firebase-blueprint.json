@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with role-based access",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Unique identifier for the user" },
+        "email": { "type": "string", "description": "User's email address" },
+        "role": { "type": "string", "enum": ["faculty", "student"], "description": "Role of the user" },
+        "displayName": { "type": "string", "description": "User's display name" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "Prediction": {
+      "title": "Prediction",
+      "description": "Saved student grade predictions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentData": { "$ref": "StudentData" },
+        "result": { "$ref": "PredictionResult" },
+        "createdBy": { "type": "string", "description": "UID of the faculty member who created this" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["studentData", "result", "createdBy", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/predictions/{predictionId}": {
+      "schema": "Prediction",
+      "description": "Stored predictions"
+    }
+  }
+}
